@@ -1,3 +1,5 @@
+import UseWeather from "../Hooks/UseWesther"; // this is my custom hook.
+
 const DailyForecast = () => {
   return (
     <div>

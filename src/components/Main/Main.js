@@ -5,7 +5,7 @@ import DailyForecast from "../DailyWeather/DailyForecast";
 const Main = () => {
   return (
     <div>
-      <div>midnenkit meghívok dee</div>
+      <div>midnenkit meghívok </div>
       <div>
         <NavBar />
         <DailyForecast />
