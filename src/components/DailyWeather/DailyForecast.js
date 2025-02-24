@@ -1,31 +1,23 @@
-import UseWeather from "../Hooks/UseWesther"; // this is my custom hook.
+import React, { useState, useEffect } from "react";
+import UseWeather from "../Hooks/UseWeather"; // this is my custom hook.
 
 const DailyForecast = () => {
-  const { data, isLoading } = UseWeather();
-  console.log("z a data" + data);
+  const [city, setCity] = useState("London"); // Kezdeti város
 
-  return (
-    <div>
-      {" "}
-      {isLoading ? (
-        <p>Loading weather data...</p>
-      ) : (
-        <div>
-          <h1>Daily weather</h1>
+  // URLs generálása a város alapján
+  const [urls, setUrls] = useState([]);
 
-          <h2>{data.location.name}</h2>
-          <h2>{data.location.region}</h2>
-          <h2> {data.location.localtime}</h2>
-          <h2> {data.current.temp_c}</h2>
-          <h2> {data.current.feelslike_c}</h2>
-          <img src={data.current.condition.icon} alt="Weather Icon"></img>
-          <h2>{data.current.condition.text}</h2>
-          <h2>{data.current.wind_kph} k/ph</h2>
-          <h2> {data.current.humidity}</h2>
-          <h2> {data.current.uv}</h2>
-        </div>
-      )}{" "}
-    </div>
-  );
+  useEffect(() => {
+    const newUrls = [
+      `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/current.json?key=09552ecbeb184118aed172805251702&q=${city}&aqi=no`,
+      `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=09552ecbeb184118aed172805251702&q=${city}&days=2&aqi=no&alerts=no`,
+    ];
+    setUrls(newUrls);
+  }, [city]); // Figyeljük a 'city' változását, nem a teljes URLs tömböt
+
+  const { data, loading, error } = UseWeather(urls);
+  console.log("Weather data:", data);
+
+  return <div></div>;
 };
 export default DailyForecast;
