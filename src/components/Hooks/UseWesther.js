@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
 // lovely custom hook.
-// here is my api key 09552ecbeb184118aed172805251702
+// 09552ecbeb184118aed172805251702
 const UseWeather = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
     fetch(
