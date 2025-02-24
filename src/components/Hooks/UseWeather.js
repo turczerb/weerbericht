@@ -44,8 +44,8 @@ const UseWeather = (urls) => {
         const responseData = {
           current: responses[0],
           forecast: responses[1],
-          // astronomy: responses[2],
-          //alerts: responses[3],
+          astronomy: responses[2],
+          alerts: responses[3],
         };
 
         setData(responseData); //responseDatat beallitjuk data allapotba. ez tarolja az osszes api valszat
