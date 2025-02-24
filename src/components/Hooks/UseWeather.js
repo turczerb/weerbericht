@@ -43,7 +43,7 @@ const UseWeather = (urls) => {
         // Az összes válasz beállítása egy objektumba
         const responseData = {
           current: responses[0],
-          //  forecast: responses[1],
+          forecast: responses[1],
           // astronomy: responses[2],
           //alerts: responses[3],
         };
